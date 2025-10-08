@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitProgress - Controle de Treino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1>FitProgress</h1>
+                    <div class="subtitle">Controle seu progresso nos treinos</div>
+                </div>
+                <div class="profile-icon">
+                    <i>👤</i>
+                </div>
+            </div>
+        </header>
+        
+        <div class="tab-navigation">
+            <div class="tab active" data-tab="workouts">Treinos</div>
+            <div class="tab" data-tab="progress">Progresso</div>
+            <div class="tab" data-tab="history">Histórico</div>
+        </div>
+        
+        <!-- ABA TREINOS -->
+        <div class="tab-content active" id="workouts">
+            <div class="card">
+                <div class="card-title">
+                    Meus Treinos
+                </div>
+                
+                <div class="workout-list">
+                    <div class="workout-item">
+                        <div class="workout-info">
+                            <h3>Treino A - Pernas e Ombros</h3>
+                            <p>Último treino: 4 dias atrás</p>
+                        </div>
+                        <div class="workout-actions-main">
+                            <button class="btn btn-start" data-workout="A">Iniciar</button>
+                            <button class="btn btn-edit" data-workout="A">Editar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="workout-item">
+                        <div class="workout-info">
+                            <h3>Treino B - Peito e Tríceps</h3>
+                            <p>Último treino: 2 dias atrás</p>
+                        </div>
+                        <div class="workout-actions-main">
+                            <button class="btn btn-start" data-workout="B">Iniciar</button>
+                            <button class="btn btn-edit" data-workout="B">Editar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="workout-item active-workout">
+                        <div class="workout-info">
+                            <h3>Treino C - Costas e Bíceps</h3>
+                            <p>Último treino: Hoje</p>
+                        </div>
+                        <div class="workout-actions-main">
+                            <button class="btn btn-start" data-workout="C">Iniciar</button>
+                            <button class="btn btn-edit" data-workout="C">Editar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Treino Ativo (será preenchido dinamicamente) -->
+            <div class="card" id="active-workout-container">
+                <div class="card-title" id="active-workout-title">
+                    Selecione um treino para iniciar
+                </div>
+                <div id="active-workout-exercises">
+                    <p style="text-align: center; padding: 20px; color: #7f8c8d;">
+                        Clique em "Iniciar" em um dos treinos acima para começar
+                    </p>
+                </div>
+                <button class="btn btn-accent" id="finish-workout-btn" style="width: 100%; margin-top: 15px; display: none;">Finalizar Treino</button>
+            </div>
+        </div>
+        
+        <!-- ABA PROGRESSO -->
+        <div class="tab-content" id="progress">
+            <div class="card">
+                <div class="card-title">
+                    Progresso de Carga
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-item">
+                        <div class="progress-exercise">Barra Fixa com Peso</div>
+                        <div class="progress-stats">
+                            <div class="stat">
+                                <div class="stat-value up">+5kg</div>
+                                <div class="stat-label">1 mês</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value up">+10kg</div>
+                                <div class="stat-label">3 meses</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-exercise">Remada Curvada</div>
+                        <div class="progress-stats">
+                            <div class="stat">
+                                <div class="stat-value up">+7.5kg</div>
+                                <div class="stat-label">1 mês</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value up">+15kg</div>
+                                <div class="stat-label">3 meses</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-exercise">Rosca Direta</div>
+                        <div class="progress-stats">
+                            <div class="stat">
+                                <div class="stat-value up">+2.5kg</div>
+                                <div class="stat-label">1 mês</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value up">+5kg</div>
+                                <div class="stat-label">3 meses</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    Estatísticas do Treino
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-item">
+                        <div class="progress-exercise">Treinos na Semana</div>
+                        <div class="progress-stats">
+                            <div class="stat">
+                                <div class="stat-value">4/5</div>
+                                <div class="stat-label">Esta semana</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-exercise">Média de Descanso</div>
+                        <div class="progress-stats">
+                            <div class="stat">
+                                <div class="stat-value">92s</div>
+                                <div class="stat-label">Entre séries</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-exercise">Taxa de Conclusão</div>
+                        <div class="progress-stats">
+                            <div class="stat">
+                                <div class="stat-value">94%</div>
+                                <div class="stat-label">Séries finalizadas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ABA HISTÓRICO -->
+        <div class="tab-content" id="history">
+            <div class="card">
+                <div class="card-title">
+                    Histórico de Treinos
+                </div>
+                
+                <div class="history-list" id="history-list">
+                    <!-- Histórico será preenchido dinamicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para editar treino -->
+    <div class="modal" id="edit-workout-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="edit-workout-title">Editar Treino</h2>
+                <button class="close-modal" id="close-edit-modal">&times;</button>
+            </div>
+            <div id="edit-workout-content">
+                <!-- Conteúdo será preenchido dinamicamente -->
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn" id="save-workout-btn">Salvar</button>
+                <button class="btn btn-accent" id="cancel-edit-btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
